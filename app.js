@@ -1,5 +1,6 @@
 var express = require("express");
 var square = require("./square");
+var wiki = require("./wiki");
 
 var app = express();
 
@@ -11,3 +12,5 @@ app.get("/", function (req, res) {
 app.listen(3000, function () {
   console.log("Example App Listening on 3000!");
 });
+
+app.use("/wiki", wiki);
