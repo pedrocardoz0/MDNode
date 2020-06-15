@@ -7,6 +7,12 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+var mongoose = require('mongoose')
+var mongoDB = 'mongodb://127.0.0.1/my_database'
+mongoose.connect(mongoDB, { useNewUrlParser: true })
+var db = mongoose.connection
+db.on('error', console.error.bind(console, 'MongoDB connection error:'))
+
 var app = express();
 
 // view engine setup
